@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{261FB126-A213-4083-8F86-4DDBAC0524A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bitter.Core.Netframework</RootNamespace>
+    <AssemblyName>Bitter.Core.Netframework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="BaseQuery\BaseQuery.cs" />
+    <Compile Include="Base\BtConditionBuilder.cs" />
+    <Compile Include="Base\BtExpressionVisitor.cs" />
+    <Compile Include="Base\BtPartialEvaluator.cs" />
+    <Compile Include="Base\SetWhere.cs" />
+    <Compile Include="BulkCopyModel.cs" />
+    <Compile Include="ChangeProxy\ModelChangeProxy.cs" />
+    <Compile Include="ChangeProxy\ModelProxy.cs" />
+    <Compile Include="ChangeProxy\PropertyChanged.cs" />
+    <Compile Include="ChangeProxy\PropertyChangeLogProxy.cs" />
+    <Compile Include="ChangeProxy\ProxyDefineConst.cs" />
+    <Compile Include="ChangeProxy\ProxyUtils.cs" />
+    <Compile Include="CreateOneQuery.cs" />
+    <Compile Include="DataAccess\AccessOption.cs" />
+    <Compile Include="DataAccess\Attributes\EnumTypeAttribute.cs" />
+    <Compile Include="DataAccess\Attributes\RelationTableAttribute.cs" />
+    <Compile Include="DataAccess\connectionStringEntity.cs" />
+    <Compile Include="DataAccess\DataAccessFactory.cs" />
+    <Compile Include="DataAccess\DatabaseConnection.cs" />
+    <Compile Include="DataAccess\DatabaseProperty.cs" />
+    <Compile Include="DataAccess\DatabaseType.cs" />
+    <Compile Include="DataAccess\DbDefaultConfig.cs" />
+    <Compile Include="DataAccess\DBSettings.cs" />
+    <Compile Include="DataAccess\IDbConfig.cs" />
+    <Compile Include="DataAccess\SqlClient\BaseExcut.cs" />
+    <Compile Include="DataAccess\SqlClient\BaseExcutQuery.cs" />
+    <Compile Include="DataAccess\SqlClient\BaseQueryExtend.cs" />
+    <Compile Include="DataAccess\SqlClient\DataAccess.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutEnum.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Count.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Delete.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Excut.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Insert.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Page.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Select.cs" />
+    <Compile Include="DataAccess\SqlClient\ExcutParBag_Update.cs" />
+    <Compile Include="DataAccess\SqlClient\FiledProperty.cs" />
+    <Compile Include="DataAccess\SqlClient\OrderBy.cs" />
+    <Compile Include="DataAccess\SqlClient\OrderPair.cs" />
+    <Compile Include="DataAccess\SqlClient\PageMode.cs" />
+    <Compile Include="DataAccess\SqlClient\SqlQueryParameterCollection.cs" />
+    <Compile Include="DataAccess\SqlClient\UpdatePair.cs" />
+    <Compile Include="db.cs" />
+    <Compile Include="dbHelper.cs" />
+    <Compile Include="DbProvider\BaseQueryExtend.cs" />
+    <Compile Include="DbProvider\DbProvider.cs" />
+    <Compile Include="dbscope.cs" />
+    <Compile Include="DC.cs" />
+    <Compile Include="DistributedTransaction.cs" />
+    <Compile Include="ExcutQuery\MsSqlPage\MsPageManage.cs" />
+    <Compile Include="ExcutQuery\MsSqlQuery.cs" />
+    <Compile Include="ExcutQuery\MySqlPage\MyPageManage.cs" />
+    <Compile Include="ExcutQuery\MySqlQuery.cs" />
+    <Compile Include="ExcutQuery\OrcleSqlQuery.cs" />
+    <Compile Include="Extention\BaseModelExtend.cs" />
+    <Compile Include="Extention\BaseQueryExtension.cs" />
+    <Compile Include="Extention\BList.cs" />
+    <Compile Include="Extention\EnumExtension.cs" />
+    <Compile Include="Extention\ObjectExtension.cs" />
+    <Compile Include="Extention\OtherExtend.cs" />
+    <Compile Include="Extention\ScopeExtension.cs" />
+    <Compile Include="Extention\SubmitExtension.cs" />
+    <Compile Include="IBase\IBaseEntity.cs" />
+    <Compile Include="IBase\IBaseOprator.cs" />
+    <Compile Include="IBase\IQuery.cs" />
+    <Compile Include="IdConverToLamda\IdConvertToLamda.cs" />
+    <Compile Include="IProxy.cs" />
+    <Compile Include="ModelOpretion.cs" />
+    <Compile Include="MonitorInfo.cs" />
+    <Compile Include="Op\Delete\Delete.cs" />
+    <Compile Include="Op\Delete\DeleteInstan.cs" />
+    <Compile Include="Op\excutInSql\ExcutInSql.cs" />
+    <Compile Include="Op\find\FindQuery.cs" />
+    <Compile Include="Op\insert\Insert.cs" />
+    <Compile Include="Op\ModelOpretion.cs" />
+    <Compile Include="Op\page\IPageAccess.cs" />
+    <Compile Include="Op\page\IUnionPageAccess.cs" />
+    <Compile Include="Op\page\PageQuery.cs" />
+    <Compile Include="Op\page\UnionPage.cs" />
+    <Compile Include="Op\readInSql\ReadInSql.cs" />
+    <Compile Include="Op\update\Update.cs" />
+    <Compile Include="Op\update\UpdateInstan.cs" />
+    <Compile Include="Op\WhereQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScopeCommandInfo.cs" />
+    <Compile Include="ServiceApplication.cs" />
+    <Compile Include="Utils\EnumUtil.cs" />
+    <Compile Include="Utils\MppingUntil.cs" />
+    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="VdbBulkCopy\IVdb.cs" />
+    <Compile Include="VdbBulkCopy\MSSQLVdb.cs" />
+    <Compile Include="VdbBulkCopy\MySqlVdb.cs" />
+    <Compile Include="VdbBulkCopy\OLEDBVdb.cs" />
+    <Compile Include="VdbBulkCopy\VdbProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bitter.Frame.Base.Netframwork\Bitter.Base.Netframework.csproj">
+      <Project>{f510c9e9-a6e9-4ebb-97cc-851ff5f6b768}</Project>
+      <Name>Bitter.Base.Netframework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bitter.Tools.Netframework\Bitter.Tools.Netframework.csproj">
+      <Project>{3c425e1d-85bf-4f90-bbea-6d4862d5ea1d}</Project>
+      <Name>Bitter.Tools.Netframework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data">
+      <Version>6.9.12</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

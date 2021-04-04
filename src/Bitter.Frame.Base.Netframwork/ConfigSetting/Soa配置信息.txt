@@ -1,0 +1,98 @@
+
+
+一：SoaConfig 配置详解：
+
+SessionTimeOut：注册/配置中心组件会话超时 单位 秒 （必须配置）
+ConnectTimeOut：注册/配置中心组件 连接超时 单位 秒 （必须配置）
+LocalServer：配置当前服务地址 （必须配置）
+MaxReadPoolSize：当前读连接池数量
+MaxWritePoolSize：当前写最大连接池数量
+ReadServerList：读地址 （必须配置）
+WriteServerList写地址 （必须配置）
+RecordeLog：是否记录Debug 日志 false|true
+EnabledCache：是否启用缓存  false|true
+ExcludeServers:排除的提供者IP 用于测试
+DebugServer：debug 测试地址
+IsRegister:是否将服务注册中服务注册中心，默认false
+ClosedSoaProviders：关闭SOA 容器寻址,直接走配置  （必须配置）
+DataCenterName:走哪个数据中心 （必须配置）
+EnvName:环境名称 （必须配置）
+IsDeployInDocker:是否发布到docker 容器中
+DockerHostIPFile：如果发布到docker 容器，需设置宿主机IP的文件
+ServiceName:服务名称
+
+<configSections>  
+     <section name="SoaConfig" type="Bitter.Base.SoaConfigInfo, Bitter.Base" />
+    </configSections>
+  <SoaConfig DataCenterName="dc1" IsRegister"false" EnvName="TestGrayscale" WriteServerList="192.168.100.40:8500" ReadServerList="192.168.100.40:8500" ClosedSoaProviders="true" MaxWritePoolSize="60" SessionTimeOut="30" ConnectTimeOut="10" MaxReadPoolSize="60" EnabledCache="true" RecordeLog="true" LocalServer="192.168.129.153:8081/" IsGreyTestServer="false" />
+ 
+
+ <AppSetting>
+ 
+ </AppSetting>
+
+
+
+ --线下环境地址（测试,测试灰度,培训,集成等线下环境地址）：
+ WriteServerList：192.168.100.40:8500  
+ ReadServerList：192.168.100.40:8500
+
+
+ --线下环境地址（预发布环境）：
+ WriteServerList：
+ ReadServerList：
+
+ --线下环境地址（线上生产环境地址）：
+ WriteServerList：
+ ReadServerList：
+-------------------------------- 
+EnvName：
+ 
+--配置中心_环境变量_灰度测试
+TestGrayscale
+
+--配置中心_环境变量_测试
+Test
+
+--配置中心_环境变量_预发布
+ReleasePre
+
+--配置中心_环境变量_生产环境
+Release
+
+
+
+二：消息中心配置详解
+appSetting： 
+<add key="MeessageService" value="host=192.168.100.41;virtualhost=/;username=admin;password=123qwe;publisherConfirms=true;timeout=20" /> //消息中心配置
+<add key="IsEnableLooppull" value="false" />  //如果设置为true的话,服务中的调度就会10分钟去配置中心拉取数据一次（用于配置中心，如果没有配置此项，默认为true）
+
+---------------
+消息中心配置中的host:
+--线下环境地址（测试,测试灰度,培训,集成等线下环境地址）：
+
+
+192.168.100.41
+
+--线下环境地址（预发布环境）：
+
+--线下环境地址（线上环境）：
+
+
+三：使用注意事项,当配置中心修改一个应用项的配置后,对应的应用下的web.config会相应的改动。要使web.config产生自动修改,IIS/USER 必须对文件夹下的web.config 有写入的权限
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2020/1/10更新日志 by:cml 灰度寻址升级方案
+
+nuget:
+BT.Manage.Soa	2.2.0.6
+Bitter.Base  2.2.9.5
+
+SoaConfig增加配置：IsGreyTestServer 是否灰度测试服务器 默认false
+AppSettting配置：
+		1、GreyTestFlag  灰度测试状态   1灰度测试中 0非灰度测试
+		2、{ApiFlag}_CloseSoaProviderFlag 服务寻址配置项0 Consul寻址 1配置文件寻址
+
+说明：寻址方案优先遵循SOAConfig ClosedSoaProviders配置项（true为配置文件寻址，Flase时遵循{ApiFlag}_CloseSoaProviderFlag配置项寻址）
+		灰度寻址：灰度测试服务器在灰度测试中寻址遵循灰度服务寻址，即所有请求链路均为灰度服务。非灰度请求非灰度寻址。
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

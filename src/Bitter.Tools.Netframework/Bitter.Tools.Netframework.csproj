@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C425E1D-85BF-4F90-BBEA-6D4862D5EA1D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bitter.Tools.Netframework</RootNamespace>
+    <AssemblyName>Bitter.Tools.Netframework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DataBaseAttribute.cs" />
+    <Compile Include="Attributes\DatabaseTypes.cs" />
+    <Compile Include="Attributes\DataSourceAttribute.cs" />
+    <Compile Include="Attributes\DataSourceTypes.cs" />
+    <Compile Include="Attributes\Db.cs" />
+    <Compile Include="Attributes\DbEmun.cs" />
+    <Compile Include="Attributes\Identity.cs" />
+    <Compile Include="Attributes\IIDbConfig.cs" />
+    <Compile Include="Attributes\NoneSelectAttribute.cs" />
+    <Compile Include="Attributes\Number.cs" />
+    <Compile Include="Attributes\QAuthorization.cs" />
+    <Compile Include="Attributes\SqlSugar.cs" />
+    <Compile Include="Attributes\TableName.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="BTCallContextData.cs" />
+    <Compile Include="BTMap.cs" />
+    <Compile Include="BTMapExten.cs" />
+    <Compile Include="Config\ConfigOptionsDto.cs" />
+    <Compile Include="Config\Configsetting.cs" />
+    <Compile Include="Config\ConfigurationManage.cs" />
+    <Compile Include="Consul\ConsulNetClient.cs" />
+    <Compile Include="Consul\ConsulOption.cs" />
+    <Compile Include="DateType.cs" />
+    <Compile Include="ExpressionUtil\BinaryExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\CachedExpressionCompiler.cs" />
+    <Compile Include="ExpressionUtil\ConditionalExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\ConstantExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\DefaultExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\ExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\ExpressionFingerprintChain.cs" />
+    <Compile Include="ExpressionUtil\FingerprintingExpressionVisitor.cs" />
+    <Compile Include="ExpressionUtil\HashCodeCombiner.cs" />
+    <Compile Include="ExpressionUtil\Hoisted.cs" />
+    <Compile Include="ExpressionUtil\HoistingExpressionVisitor.cs" />
+    <Compile Include="ExpressionUtil\IndexExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\LambdaExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\MemberExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\MethodCallExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\ParameterExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\TypeBinaryExpressionFingerprint.cs" />
+    <Compile Include="ExpressionUtil\UnaryExpressionFingerprint.cs" />
+    <Compile Include="Extensions\ConcurrentDicExtension.cs" />
+    <Compile Include="FinanceCalculation .cs" />
+    <Compile Include="Helper\CookieHelper.cs" />
+    <Compile Include="Helper\CusControlObj.cs" />
+    <Compile Include="Helper\EntityHelper.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
+    <Compile Include="Helper\ExceptionHelper.cs" />
+    <Compile Include="Helper\FtpUpDown.cs" />
+    <Compile Include="Helper\HashTableHelper.cs" />
+    <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\LoginHelper.cs" />
+    <Compile Include="Helper\ModelHelper.cs" />
+    <Compile Include="Helper\RequestHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="Helper\XmlHelper.cs" />
+    <Compile Include="Lamabda\ExpressionParser\ExpressionParserCore.cs" />
+    <Compile Include="Lamabda\ExpressionParser\ParserSyntaxErrorException.cs" />
+    <Compile Include="Lamabda\ExpressionParser\PriorityManager.cs" />
+    <Compile Include="Lamabda\ExpressionParser\ReadResult.cs" />
+    <Compile Include="Lamabda\ExpressionParser\TypeVariable.cs" />
+    <Compile Include="Lamabda\LamabdaCommon.cs" />
+    <Compile Include="Lamabda\LambdaParser.cs" />
+    <Compile Include="Lamabda\StringParser\ParseException.cs" />
+    <Compile Include="Lamabda\StringParser\SymbolParser.cs" />
+    <Compile Include="Lamabda\StringParser\SymbolParseResult.cs" />
+    <Compile Include="Lamabda\StringParser\Token.cs" />
+    <Compile Include="Lamabda\TypePraser\ParseUnfindTypeException.cs" />
+    <Compile Include="Lamabda\TypePraser\TypeParser.cs" />
+    <Compile Include="Lamabda\Utilities\EqualComparer.cs" />
+    <Compile Include="MethodExt.cs" />
+    <Compile Include="NLog\Log.cs" />
+    <Compile Include="NLog\LogDefault.cs" />
+    <Compile Include="NLog\LogSwitchDto.cs" />
+    <Compile Include="NLog\ThreadSlot.cs" />
+    <Compile Include="NLog\TraceParamLayout.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflex\ReflexHelper.cs" />
+    <Compile Include="Reflex\ReflexWriteByType.cs" />
+    <Compile Include="test.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="Utils\ApiUtil.cs" />
+    <Compile Include="Utils\BaseThread.cs" />
+    <Compile Include="Utils\BaseThreadEntity.cs" />
+    <Compile Include="Utils\DataTypeUtils.cs" />
+    <Compile Include="Utils\DtGroupUtil.cs" />
+    <Compile Include="Utils\DtToExcel.cs" />
+    <Compile Include="Utils\EncryptionUtil.cs" />
+    <Compile Include="Utils\EncryptUtils.cs" />
+    <Compile Include="Utils\EntityUtils.cs" />
+    <Compile Include="Utils\GuidExtends.cs" />
+    <Compile Include="Utils\IDCardUtils.cs" />
+    <Compile Include="Utils\LinqUtil.cs" />
+    <Compile Include="Utils\MessageUtils.cs" />
+    <Compile Include="Utils\ObjectsUtils.cs" />
+    <Compile Include="Utils\PropertyUtil.cs" />
+    <Compile Include="Utils\RandUtils.cs" />
+    <Compile Include="Utils\SessionHelper.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utils\ToWord.cs" />
+    <Compile Include="Utils\TreeUtil.cs" />
+    <Compile Include="Utils\TryCast.cs" />
+    <Compile Include="Utils\ValidateUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.Words">
+      <Version>17.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="AutoMapper">
+      <Version>6.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="BTExcel">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Consul">
+      <Version>0.7.2.6</Version>
+    </PackageReference>
+    <PackageReference Include="EasyNetQ">
+      <Version>1.1.4.506</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>4.5.5</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>105.2.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="打包发布.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Newtonsoft.Json.xml" />
+    <Content Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
