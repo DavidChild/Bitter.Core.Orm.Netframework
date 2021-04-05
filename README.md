@@ -26,14 +26,14 @@
     
     12: 支持字段变更收集
   
- BTORM 使得程序员变的更懒成为一件美丽的事！
+ Bitter.Core.Orm 使得程序员变的更懒成为一件美丽的事！
    
 # NUGET
 NETCORE: https://www.nuget.org/packages/BT.Manage.Core.NetCore/
 
 To install BT.Manage.Core.NetCore, run the following command in the Package Manager Console
 ```
-PM> Install-Package BT.Manage.Core.NetCore
+PM> Install-Package Bitter.Core.Netframework
 ```
 
 # 博客园
