@@ -1,4 +1,4 @@
-# Bitter.Core.Orm.Netframework -- Netframework ORM MAPPING 框架。
+# Bitter.Core.Orm.Netframework -- ORM MAPPING 框架。
 
     一个高性能,面向开发人员使用 NETCORE/NETFRAMEWORK 数据库持久化框架（ORM）
     
