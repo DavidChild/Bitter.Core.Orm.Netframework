@@ -80,7 +80,7 @@ namespace Bitter.Tools
 
         public ConnectionStringSettings DbConnection(string key)
         {
-            return ConfigurationManager.ConnectionStrings[key];
+           return ConfigurationManager.ConnectionStrings[key];
         }
     }
 

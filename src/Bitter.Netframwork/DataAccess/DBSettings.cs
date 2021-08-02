@@ -2,7 +2,7 @@
 using Bitter.Tools;
 using System.Collections.Generic;
 using System.Configuration;
-
+using Bitter.Tools.Utils;
 namespace Bitter.Core
 {
     public sealed class DBSettings
@@ -43,12 +43,12 @@ namespace Bitter.Core
 
 
             ConnectionStringSettings connectionStringSettings = Configsetting.Appsettings.DbConnection(name + ".Reader");
-
-            if (connectionStringSettings == null)
+            var connec = Configsetting.Appsettings["SQLServerDBConnectionStr"].ToSafeString();
+            if (connectionStringSettings == null && (string.IsNullOrEmpty(connec)))
             {
                 reader.ConnectionString = string.Empty;
             }
-            else
+            else if (connectionStringSettings!=null)
             {
                 reader.ConnectionString = connectionStringSettings.ConnectionString;
                 reader.DatabaseType = DbProvider.GetType(connectionStringSettings.ProviderName);
@@ -59,15 +59,21 @@ namespace Bitter.Core
                 }
 
             }
+            else
+            {
+                reader.ConnectionString = connec;
+
+            }
             DatabaseConnection writer = default(DatabaseConnection);
             writer.DatabaseType = DatabaseType.MSSQLServer;
             writer.Version = 2008;
             ConnectionStringSettings connectionStringSettings2 = Configsetting.Appsettings.DbConnection(name + ".Writer");
-            if (connectionStringSettings2 == null)
+
+            if (connectionStringSettings2 == null && string.IsNullOrEmpty(connec))
             {
                 writer.ConnectionString = string.Empty;
             }
-            else
+            else if (connectionStringSettings2 != null)
             {
                 writer.ConnectionString = connectionStringSettings2.ConnectionString;
                 writer.DatabaseType = DbProvider.GetType(connectionStringSettings.ProviderName);
@@ -75,6 +81,11 @@ namespace Bitter.Core
                 {
                     writer.Version = 2012;
                 }
+
+            }
+            else
+            {
+                writer.ConnectionString = connec;
 
             }
             return new DatabaseProperty(reader, writer);
