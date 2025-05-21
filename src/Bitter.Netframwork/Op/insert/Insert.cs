@@ -28,7 +28,7 @@ namespace Bitter.Core
         public InsertIns(T data,bool isOutIdentity)
         {
             
-             excutParBag = new ExcutParBag_Insert();
+            excutParBag = new ExcutParBag_Insert();
             ((ExcutParBag_Insert)excutParBag).excutEnum = ExcutEnum.Insert;
             ((ExcutParBag_Insert)excutParBag).SetType(typeof(T));
             ((ExcutParBag_Insert)excutParBag).data = data;

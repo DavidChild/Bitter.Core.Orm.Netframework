@@ -36,16 +36,20 @@ namespace Bitter.Core
         }
 
 
+      
+        
+
+
+
         public static DatabaseProperty GetDatabaseProperty(string name)
         {
+
+            
             DatabaseConnection reader = default(DatabaseConnection);
             reader.DatabaseType = DatabaseType.MSSQLServer;
-
-
             ConnectionStringSettings connectionStringSettings = Configsetting.Appsettings.DbConnection(name + ".Reader");
             var connec = Configsetting.Appsettings["SQLServerDBConnectionStr"].ToSafeString();
-            if (connectionStringSettings == null && (string.IsNullOrEmpty(connec)))
-            {
+            if (connectionStringSettings == null && (string.IsNullOrEmpty(connec))){
                 reader.ConnectionString = string.Empty;
             }
             else if (connectionStringSettings!=null)

@@ -50,5 +50,6 @@ namespace Bitter.Core
             return new PageQuery(selectCommandText, targetdb);
         }
 
+
     }
 }

@@ -12,6 +12,7 @@ namespace Bitter.Core
 
     public class dc
     {
+
         /// <summary>
         /// 
         /// </summary>
@@ -24,6 +25,13 @@ namespace Bitter.Core
             if (!string.IsNullOrEmpty(targetdb))
             {
                 _targetdb = targetdb;
+            }
+            ITargetMultiDb customTargetDb = TargetCustomMutilDb.getCustomTargetDbs();
+            if (targetdb != null && targetdb != "" && customTargetDb != null) {
+                DatabaseProperty dp = customTargetDb.FindTargetDb(targetdb);
+                if (dp != null) {
+                    return dp;
+                }
             }
             return DBSettings.GetDatabaseProperty(_targetdb); 
         }
